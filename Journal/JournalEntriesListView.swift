@@ -10,8 +10,8 @@ import SwiftUI
 struct JournalEntriesListView: View {
     
     let journalEntries: [JournalEntry] = [
-        JournalEntry(title: "St Patrick's Day"),
-        JournalEntry(title: "Ate a Pizza"),
+        JournalEntry(title: "New Year's Eve"),
+        JournalEntry(title: "Ate a Burger"),
         JournalEntry(title: "Slept like an asthmatic"),
         JournalEntry(title: "Played Teamfight Tactics"),
     ]
@@ -19,7 +19,9 @@ struct JournalEntriesListView: View {
     var body: some View {
         NavigationStack {
             List(journalEntries) { journalEntry in
-                Text(journalEntry.title)
+                NavigationLink(destination: Text(journalEntry.title)) {
+                    Text(journalEntry.title)
+                }
             }
             .navigationTitle("\(journalEntries.count) Journal Entries")
         }
