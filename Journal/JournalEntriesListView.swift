@@ -8,18 +8,10 @@
 import SwiftUI
 
 struct JournalEntriesListView: View {
-    
-    let journalEntries: [JournalEntry] = [
-        JournalEntry(title: "New Year's Eve"),
-        JournalEntry(title: "Ate a Burger"),
-        JournalEntry(title: "Slept like an asthmatic"),
-        JournalEntry(title: "Played Teamfight Tactics"),
-    ]
-    
     var body: some View {
         NavigationStack {
             List(journalEntries) { journalEntry in
-                NavigationLink(destination: Text(journalEntry.title)) {
+                NavigationLink(destination: JournalEntryDetailView(journalEntry: journalEntry)) {
                     Text(journalEntry.title)
                 }
             }
