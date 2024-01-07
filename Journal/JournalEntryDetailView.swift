@@ -31,6 +31,6 @@ struct JournalEntryDetailView: View {
 
 #Preview {
     NavigationStack {
-        JournalEntryDetailView(journalEntry: journalEntries[0])
+//        JournalEntryDetailView(journalEntry: journalEntries[0])
     }
 }

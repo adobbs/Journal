@@ -36,6 +36,6 @@ struct JournalEntryRowView: View {
 
 #Preview {
     List {
-        JournalEntryRowView(journalEntry: journalEntries[0])
+//        JournalEntryRowView(journalEntry: journalEntries[0])
     }
 }
