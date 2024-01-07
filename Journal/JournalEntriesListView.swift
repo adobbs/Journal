@@ -12,6 +12,8 @@ struct JournalEntriesListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var journalEntries: [JournalEntry]
     
+    @State var showCreateView = false
+    
     var body: some View {
         NavigationStack {
             List(journalEntries) { journalEntry in
@@ -21,9 +23,14 @@ struct JournalEntriesListView: View {
             }
             .navigationTitle("\(journalEntries.count) Journal Entries")
             .toolbar {
-                Button(action: addEntry) {
+                Button(action: {
+                    showCreateView = true
+                }) {
                     Label("Add Entry", systemImage: "plus")
                 }
+            }
+            .sheet(isPresented: $showCreateView) {
+                CreateJournalEntryView()
             }
         }
     }
