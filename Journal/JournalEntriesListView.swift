@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct JournalEntriesListView: View {
-    @Environment(\.modelContext) private var modelContext
     @Query private var journalEntries: [JournalEntry]
     
     @State var showCreateView = false
@@ -32,18 +31,6 @@ struct JournalEntriesListView: View {
             .sheet(isPresented: $showCreateView) {
                 CreateJournalEntryView()
             }
-        }
-    }
-    
-    private func addEntry() {
-        withAnimation {
-            let newEntry = JournalEntry(
-                title: "Took a nap",
-                text: "I took a nap on this day",
-                rating: 5,
-                date: Date()
-            )
-            modelContext.insert(newEntry)
         }
     }
 }

@@ -18,7 +18,8 @@ struct JournalEntryDetailView: View {
                     Text(journalEntry.date, style: .date)
                         .bold()
                     Text("－")
-                    Text(String(repeating: "⭐️", count: journalEntry.rating))
+                    Text(String(repeating: "⭐️", count: Int(journalEntry.rating)))
+                    Spacer()
                 }
                 .padding(.bottom)
                 Text(journalEntry.text)
