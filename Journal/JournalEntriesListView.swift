@@ -9,15 +9,17 @@ import SwiftUI
 import SwiftData
 
 struct JournalEntriesListView: View {
-    @Query private var journalEntries: [JournalEntry]
+    @Query(sort: \JournalEntry.date, order: .reverse) private var journalEntries: [JournalEntry]
     
     @State var showCreateView = false
     
     var body: some View {
         NavigationStack {
             List(journalEntries) { journalEntry in
-                NavigationLink(destination: JournalEntryDetailView(journalEntry: journalEntry)) {
-                    JournalEntryRowView(journalEntry: journalEntry)
+                NavigationLink(
+                    destination: EditJournalEntryView(journalEntry: journalEntry)
+                    ) {
+                        JournalEntryRowView(journalEntry: journalEntry)
                 }
             }
             .navigationTitle("\(journalEntries.count) Journal Entries")
